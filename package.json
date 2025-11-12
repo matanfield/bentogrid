@@ -38,16 +38,16 @@
     "responsive",
     "typescript"
   ],
-  "author": "",
+  "author": "matanfield",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/matanfield/bentogrid.git"
   },
   "bugs": {
-    "url": ""
+    "url": "https://github.com/matanfield/bentogrid/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/matanfield/bentogrid#readme",
   "devDependencies": {
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.43",
