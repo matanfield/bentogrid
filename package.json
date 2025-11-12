@@ -1,0 +1,61 @@
+{
+  "name": "bentogrid",
+  "version": "0.1.0",
+  "description": "A lightweight, framework-agnostic library for generating bento grid layouts",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run build:types && npm run build:lib",
+    "build:types": "tsc -p tsconfig.build.json",
+    "build:lib": "vite build --config vite.config.lib.ts",
+    "build:demo": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "keywords": [
+    "bento",
+    "grid",
+    "layout",
+    "treemap",
+    "squarified",
+    "responsive",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.43",
+    "@vitejs/plugin-react": "^4.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.8",
+    "vitest": "^1.6.1"
+  }
+}

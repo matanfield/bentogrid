@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 20px;
+  background: #fff;
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+.controls h1 {
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.header-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+}
+
+.control-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.control-group select,
+.control-group input[type="number"] {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 80px;
+}
+
+.control-group input[type="number"] {
+  text-align: right;
+}
+
+.tile-array-section {
+  margin-top: 16px;
+}
+
+.tile-array-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.tile-array-header label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.add-tile-btn {
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #f9f9f9;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  color: #333;
+  transition: background 0.2s;
+}
+
+.add-tile-btn:hover {
+  background: #e9e9e9;
+}
+
+.tile-array {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.tile-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tile-input {
+  width: 70px;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+  text-align: right;
+}
+
+.tile-input:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.remove-tile-btn {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  color: #d32f2f;
+  transition: background 0.2s;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-tile-btn:hover {
+  background: #ffebee;
+}
+
+.canvas-container {
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+}
+

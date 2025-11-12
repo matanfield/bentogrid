@@ -1,0 +1,33 @@
+# Source files
+src/
+tsconfig*.json
+vite.config*.ts
+
+# Demo files
+index.html
+src/demo/
+
+# Development files
+node_modules/
+.git/
+.gitignore
+
+# Build artifacts (only dist/ should be published)
+*.log
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test files
+*.test.ts
+*.spec.ts
+coverage/
+
+# Other
+.env
+.env.local
+
