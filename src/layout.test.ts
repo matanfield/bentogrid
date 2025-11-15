@@ -1,5 +1,6 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { computeBentoLayout } from './layout';
+import * as algorithms from './algorithms';
 import type { BentoGridConfig } from './types';
 
 describe('computeBentoLayout', () => {
@@ -126,5 +127,62 @@ describe('computeBentoLayout', () => {
       );
     });
   });
-});
 
+  it('sorts tiles by area before applying layout when using default order', () => {
+    const config: BentoGridConfig = {
+      canvas: {
+        width: 200,
+        height: 100,
+      },
+      tiles: [2, 5, 1, 4],
+    };
+
+    const spy = vi.spyOn(algorithms, 'applyLayoutStrategy').mockImplementation(
+      (strategy, tilesArg, rect) =>
+        tilesArg.map((tile) => ({
+          id: tile.id,
+          area: tile.area,
+          rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height },
+        }))
+    );
+
+    computeBentoLayout(config);
+
+    const sortedAreas = config.tiles
+      .filter((area) => area > 0)
+      .sort((a, b) => b - a);
+    const passedAreas = spy.mock.calls[0][1].map((tile) => tile.area);
+    expect(passedAreas).toEqual(sortedAreas);
+
+    spy.mockRestore();
+  });
+
+  it('respects input order when requested', () => {
+    const config: BentoGridConfig = {
+      canvas: {
+        width: 200,
+        height: 100,
+      },
+      tiles: [2, 5, 1, 4],
+      options: {
+        order: 'input',
+      },
+    };
+
+    const spy = vi.spyOn(algorithms, 'applyLayoutStrategy').mockImplementation(
+      (strategy, tilesArg, rect) =>
+        tilesArg.map((tile) => ({
+          id: tile.id,
+          area: tile.area,
+          rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height },
+        }))
+    );
+
+    computeBentoLayout(config);
+
+    const passedAreas = spy.mock.calls[0][1].map((tile) => tile.area);
+    expect(passedAreas).toEqual(config.tiles);
+
+    spy.mockRestore();
+  });
+});

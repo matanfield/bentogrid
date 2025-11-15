@@ -22,6 +22,11 @@ export interface Tile {
 export type LayoutStrategy = 'squarified' | 'binary';
 
 /**
+ * Tile ordering strategy before computing layout
+ */
+export type TileOrder = 'input' | 'descending';
+
+/**
  * Configuration for computing a single bento grid
  */
 export interface BentoGridConfig {
@@ -34,6 +39,7 @@ export interface BentoGridConfig {
   options?: {
     strategy?: LayoutStrategy;
     gutter?: number;
+    order?: TileOrder;
   };
 }
 
@@ -53,4 +59,3 @@ export interface BentoGridLayout {
   rect: Rectangle;
   tiles: LayoutTile[];
 }
-

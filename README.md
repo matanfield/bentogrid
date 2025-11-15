@@ -32,6 +32,7 @@ const config: BentoGridConfig = {
   options: {
     strategy: 'squarified', // 'squarified' or 'binary'
     gutter: 8, // Optional, spacing between tiles
+    order: 'descending', // Optional, 'descending' (default) or 'input'
   },
 };
 
@@ -138,6 +139,7 @@ Computes a bento grid layout from the provided configuration.
   options?: {
     strategy?: 'squarified' | 'binary';  // Layout algorithm (default: 'squarified')
     gutter?: number;                     // Spacing between tiles (default: 0)
+    order?: 'descending' | 'input';      // Sort tiles by area or keep original order (default: 'descending')
   };
 }
 ```
@@ -191,6 +193,8 @@ The `tiles` array contains **proportional areas**. The library automatically nor
 - `[3, 1, 2]` → First tile is 3x larger than the second, 1.5x larger than the third
 - `[1, 4, 7.5, 2.34]` → Any positive numbers work as proportions
 
+Tiles are sorted by area (largest first) before layout to mimic treemap behavior. If you want to preserve your input order—for example, to create a custom storytelling layout—set `options.order = 'input'`.
+
 ## Development
 
 ```bash
@@ -214,4 +218,3 @@ npm run build
 ## License
 
 MIT
-
